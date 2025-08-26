@@ -2,7 +2,7 @@ import torch
 from TTS.api import TTS
 import gradio as gr
 
-device = "coda" if torch.cuda.is_available() else "cpu"
+device = "cpu"
 
 def generate_audio(text="Das ist ein Text"):
     tts = TTS(model_name='tts_models/de/thorsten/vits').to(device)
