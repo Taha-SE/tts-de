@@ -29,10 +29,11 @@ demo = gr.Interface(
 )
 
 # FastAPI + Gradio mounten
-fastapi_app = FastAPI()
+app = FastAPI()
 
-@fastapi_app.get("/")
+@app.get("/")
 def root():
     return RedirectResponse(url="/gradio")
 
-app = gr.mount_gradio_app(fastapi_app, demo, path="/gradio")
+# Gradio in FastAPI einbinden
+app = gr.mount_gradio_app(app, demo, path="/gradio")
